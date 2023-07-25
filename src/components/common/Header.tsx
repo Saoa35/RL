@@ -1,60 +1,60 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import briefcase from 'src/assets/images/briefcase.svg';
-import profile from 'src/assets/images/user.svg';
-import useRouter from 'src/hooks/useRouter';
-import 'src/assets/css/header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import briefcase from "src/assets/images/briefcase.svg";
+import profile from "src/assets/images/user.svg";
+import useRouter from "src/hooks/useRouter";
+import "src/assets/css/header.css";
 
 interface Props {}
 
 const Header: React.FC<Props> = () => {
-	const { pathname, navigate } = useRouter();
+  const { pathname, navigate } = useRouter();
 
-	const handleSignOut = () => {
-		navigate('/sign-in');
-	};
+  const handleSignOut = () => {
+    navigate("/sign-in");
+  };
 
-	return (
-		<header className='header'>
-			<div className='header__inner'>
-				<Link to='/' className='header__logo'>
-					Travel App
-				</Link>
-				{pathname !== '/sign-up' && pathname !== '/sign-in' && (
-					<nav className='header__nav'>
-						<ul className='nav-header__list'>
-							<li className='nav-header__item' title='Bookings'>
-								<Link to='/bookings' className='nav-header__inner'>
-									<span className='visually-hidden'>Bookings</span>
-									<img src={briefcase} alt='icon' />
-								</Link>
-							</li>
-							<li className='nav-header__item' title='Profile'>
-								<div className='nav-header__inner profile-nav' tabIndex={0}>
-									<span className='visually-hidden'>Profile</span>
-									<img src={profile} alt='profile icon' />
-									<ul className='profile-nav__list'>
-										<li className='profile-nav__item profile-nav__username'>
-											John Doe
-										</li>
-										<li className='profile-nav__item'>
-											<Link
-												to='/sign-in'
-												className='profile-nav__sign-out button'
-												onClick={handleSignOut}
-											>
-												Sign Out
-											</Link>
-										</li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-					</nav>
-				)}
-			</div>
-		</header>
-	);
+  return (
+    <header className="header">
+      <div className="header__inner">
+        <Link to="/" className="header__logo">
+          Travel App
+        </Link>
+        {pathname !== "/sign-up" && pathname !== "/sign-in" && (
+          <nav className="header__nav">
+            <ul className="nav-header__list">
+              <li className="nav-header__item" title="Bookings">
+                <Link to="/bookings" className="nav-header__inner">
+                  <span className="visually-hidden">Bookings</span>
+                  <img src={briefcase} alt="icon" />
+                </Link>
+              </li>
+              <li className="nav-header__item" title="Profile">
+                <div className="nav-header__inner profile-nav" tabIndex={0}>
+                  <span className="visually-hidden">Profile</span>
+                  <img src={profile} alt="profile icon" />
+                  <ul className="profile-nav__list">
+                    <li className="profile-nav__item profile-nav__username">
+                      John Doe
+                    </li>
+                    <li className="profile-nav__item">
+                      <Link
+                        to="/sign-in"
+                        className="profile-nav__sign-out button"
+                        onClick={handleSignOut}
+                      >
+                        Sign Out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
 };
 
 export default Header;
