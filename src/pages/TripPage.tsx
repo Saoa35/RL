@@ -29,23 +29,55 @@ const TripPage: React.FC = () => {
       <main className="trip-page">
         <h1 className="visually-hidden">Travel App</h1>
         <div className="trip">
-          <img src={image} className="trip__img" alt="trip" />
+          <img
+            src={image}
+            className="trip__img"
+            alt="trip"
+            data-test-id="trip-details-image"
+          />
           <div className="trip__content">
             <div className="trip-info">
-              <h3 className="trip-info__title">{title}</h3>
+              <h3
+                className="trip-info__title"
+                data-test-id="trip-details-title"
+              >
+                {title}
+              </h3>
               <div className="trip-info__content">
-                <span className="trip-info__duration">
+                <span
+                  className="trip-info__duration"
+                  data-test-id="trip-details-duration"
+                >
                   <strong>{duration}</strong> days
                 </span>
-                <span className="trip-info__level">{level}</span>
+                <span
+                  className="trip-info__level"
+                  data-test-id="trip-details-level"
+                >
+                  {level}
+                </span>
               </div>
             </div>
-            <div className="trip__description">{description}</div>
+            <div
+              className="trip__description"
+              data-test-id="trip-details-description"
+            >
+              {description}
+            </div>
             <div className="trip-price">
               <span>Price</span>
-              <strong className="trip-price__value">{price} $</strong>
+              <strong
+                className="trip-price__value"
+                data-test-id="trip-details-price-value"
+              >
+                {price} $
+              </strong>
             </div>
-            <button className="trip__button button" onClick={handleOpenModal}>
+            <button
+              className="trip__button button"
+              data-test-id="trip-details-button"
+              onClick={handleOpenModal}
+            >
               Book a trip
             </button>
           </div>

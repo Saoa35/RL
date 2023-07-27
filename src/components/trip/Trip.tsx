@@ -10,21 +10,33 @@ interface Props {
 const Trip: React.FC<Props> = ({ trip }) => {
   const { title, price, image, duration, level, id } = trip;
   return (
-    <li className="trip-card">
-      <img src={image} alt="trip" />
+    <li data-test-id="trip-card" className="trip-card">
+      <img data-test-id="trip-card-image" src={image} alt="trip" />
       <div className="trip-card__content">
         <div className="trip-info">
-          <h3 className="trip-info__title">{title}</h3>
+          <h3 className="trip-info__title" data-test-id="trip-card-title">
+            {title}
+          </h3>
           <div className="trip-info__content">
-            <span className="trip-info__duration">
+            <span
+              className="trip-info__duration"
+              data-test-id="trip-card-duration"
+            >
               <strong>{duration}</strong> days
             </span>
-            <span className="trip-info__level">{level}</span>
+            <span className="trip-info__level" data-test-id="trip-card-level">
+              {level}
+            </span>
           </div>
         </div>
         <div className="trip-price">
           <span>Price</span>
-          <strong className="trip-price__value">{price} $</strong>
+          <strong
+            className="trip-price__value"
+            data-test-id="trip-card-price-value"
+          >
+            {price} $
+          </strong>
         </div>
       </div>
       <Link to={`/trip/${id}`} data-test-id="trip-card-link" className="button">
